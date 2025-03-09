@@ -1,0 +1,9 @@
+  /* Main content area */
+.content {
+  width: 80%; /* Takes remaining space */
+  margin-left: 20%; /* Pushes content to the right */
+  padding: 20px;
+  background: #f4f4f4; /* Light background */
+  height: 100vh;
+  overflow-y: auto; /* Enables scrolling */
+}

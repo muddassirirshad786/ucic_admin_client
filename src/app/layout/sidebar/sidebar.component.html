@@ -1,0 +1,360 @@
+<div class="sidebar">
+  <h3>Admin Panel</h3>
+  <!-- <nav>
+        <ul>
+            <li><a class="nav-link" routerLink="/dashboard" routerLinkActive="active">Dashboard</a></li>
+            <li><a routerLink="/users">Users</a></li>
+            <li><a routerLink="/settings">Settings</a></li>
+            <li><a (click)="logout()">Logout</a></li>
+        </ul>
+    </nav> -->
+
+  <div class="main-nav">
+    <!-- Sidebar Logo -->
+    <div class="logo-box">
+      <a href="index.html" class="logo-dark">
+        <img src="src/assets/images/logo-sm.png" class="logo-sm" alt="logo sm">
+        <img src="src/images/logo-dark.png" class="logo-lg" alt="logo dark">
+      </a>
+
+      <a href="index.html" class="logo-light">
+        <img src="src/assets/images/logo-sm.png" class="logo-sm" alt="logo sm">
+        <img src="src/assets/images/logo-light.png" style="height: 53px;width: 180px;" class="logo-lg" alt="logo light">
+      </a>
+    </div>
+
+    <!-- Menu Toggle Button (sm-hover) -->
+    <button type="button" class="button-sm-hover" aria-label="Show Full Sidebar">
+      <iconify-icon icon="solar:double-alt-arrow-right-bold-duotone" class="button-sm-hover-icon"></iconify-icon>
+    </button>
+
+    <div class="scrollbar" data-simplebar>
+      <ul class="navbar-nav" id="navbar-nav">
+
+        <li class="menu-title">General</li>
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/dashboard" routerLinkActive="active">
+            <span class="nav-icon">
+              <iconify-icon icon="solar:widget-5-bold-duotone"></iconify-icon>
+            </span>
+            <span class="nav-text"> Dashboard </span>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link menu-arrow" href="#sidebarProducts" data-bs-toggle="collapse" role="button"
+            aria-expanded="false" aria-controls="sidebarProducts">
+            <span class="nav-icon">
+              <iconify-icon icon="solar:t-shirt-bold-duotone"></iconify-icon>
+            </span>
+            <span class="nav-text"> Products </span>
+          </a>
+          <div class="collapse" id="sidebarProducts">
+            <ul class="nav sub-navbar-nav">
+              <li class="sub-nav-item">
+                <a class="sub-nav-link" href="product-list.html">List</a>
+              </li>
+              <li class="sub-nav-item">
+                <a class="sub-nav-link" href="product-grid.html">Grid</a>
+              </li>
+              <li class="sub-nav-item">
+                <a class="sub-nav-link" href="product-details.html">Details</a>
+              </li>
+              <li class="sub-nav-item">
+                <a class="sub-nav-link" href="product-edit.html">Edit</a>
+              </li>
+              <li class="sub-nav-item">
+                <a class="sub-nav-link" href="product-add.html">Create</a>
+              </li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link menu-arrow" href="#sidebarCategory" data-bs-toggle="collapse" role="button"
+            aria-expanded="false" aria-controls="sidebarCategory">
+            <span class="nav-icon">
+              <iconify-icon icon="solar:clipboard-list-bold-duotone"></iconify-icon>
+            </span>
+            <span class="nav-text"> Coverage Area </span>
+          </a>
+          <div class="collapse" id="sidebarCategory">
+            <ul class="nav sub-navbar-nav">
+              <li class="sub-nav-item">
+                <a class="sub-nav-link" href="coveragearea-list.html">List</a>
+              </li>
+              <li class="sub-nav-item">
+                <a class="sub-nav-link" href="coveragearea-edit.html">Edit</a>
+              </li>
+              <li class="sub-nav-item">
+                <a class="sub-nav-link" href="coveragearea-add.html">Create</a>
+              </li>
+            </ul>
+          </div>
+        </li>
+
+
+
+        <li class="nav-item">
+          <a class="nav-link menu-arrow" href="#sidebarOrders" data-bs-toggle="collapse" role="button"
+            aria-expanded="false" aria-controls="sidebarOrders">
+            <span class="nav-icon">
+              <iconify-icon icon="solar:bag-smile-bold-duotone"></iconify-icon>
+            </span>
+            <span class="nav-text"> Orders </span>
+          </a>
+          <div class="collapse" id="sidebarOrders">
+            <ul class="nav sub-navbar-nav">
+
+              <li class="sub-nav-item">
+                <a class="sub-nav-link" href="orders-list.html">List</a>
+              </li>
+              <li class="sub-nav-item">
+                <a class="sub-nav-link" href="order-detail.html">Details</a>
+              </li>
+
+            </ul>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link menu-arrow" href="#sidebarCustomers" data-bs-toggle="collapse" role="button"
+            aria-expanded="false" aria-controls="sidebarCustomers">
+            <span class="nav-icon">
+              <iconify-icon icon="solar:users-group-two-rounded-bold-duotone"></iconify-icon>
+            </span>
+            <span class="nav-text"> Users </span>
+          </a>
+          <div class="collapse" id="sidebarCustomers">
+            <ul class="nav sub-navbar-nav">
+
+              <li class="sub-nav-item">
+                <a class="sub-nav-link" routerLink="/users" routerLinkActive="active">List</a>
+              </li>
+              <li class="sub-nav-item">
+                <a class="sub-nav-link" href="users-detail.html">Details</a>
+              </li>
+              <li class="sub-nav-item">
+                <a class="sub-nav-link" href="users-edit.html">Edit</a>
+              </li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link menu-arrow" href="#sidebarSellers" data-bs-toggle="collapse" role="button"
+            aria-expanded="false" aria-controls="sidebarSellers">
+            <span class="nav-icon">
+              <iconify-icon icon="solar:shop-bold-duotone"></iconify-icon>
+            </span>
+            <span class="nav-text"> Vendors </span>
+          </a>
+          <div class="collapse" id="sidebarSellers">
+            <ul class="nav sub-navbar-nav">
+              <li class="sub-nav-item">
+                <a class="sub-nav-link" href="vendors-list.html">List</a>
+              </li>
+              <li class="sub-nav-item">
+                <a class="sub-nav-link" href="vendors-details.html">Details</a>
+              </li>
+              <li class="sub-nav-item">
+                <a class="sub-nav-link" href="vendors-grid.html">Grid</a>
+              </li>
+              <li class="sub-nav-item">
+                <a class="sub-nav-link" href="vendors-edit.html">Edit</a>
+              </li>
+              <li class="sub-nav-item">
+                <a class="sub-nav-link" href="vendors-add.html">Create</a>
+              </li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link menu-arrow" href="#sidebarCoupons" data-bs-toggle="collapse" role="button"
+            aria-expanded="false" aria-controls="sidebarCoupons">
+            <span class="nav-icon">
+              <iconify-icon icon="solar:leaf-bold-duotone"></iconify-icon>
+            </span>
+            <span class="nav-text"> Coupons </span>
+          </a>
+          <div class="collapse" id="sidebarCoupons">
+            <ul class="nav sub-navbar-nav">
+              <li class="sub-nav-item">
+                <a class="sub-nav-link" href="coupons-list.html">List</a>
+              </li>
+              <li class="sub-nav-item">
+                <a class="sub-nav-link" href="coupons-add.html">Create</a>
+              </li>
+            </ul>
+          </div>
+        </li>
+
+
+        <li class="nav-item">
+          <a class="nav-link menu-arrow" href="#sidebarAuthentication" data-bs-toggle="collapse" role="button"
+            aria-expanded="false" aria-controls="sidebarAuthentication">
+            <span class="nav-icon">
+              <iconify-icon icon="solar:lock-keyhole-bold-duotone"></iconify-icon>
+            </span>
+            <span class="nav-text"> Authentication </span>
+          </a>
+          <div class="collapse" id="sidebarAuthentication">
+            <ul class="nav sub-navbar-nav">
+              <li class="sub-nav-item">
+                <a class="sub-nav-link" href="auth-signin.html">Sign In</a>
+              </li>
+              <li class="sub-nav-item">
+                <a class="sub-nav-link" href="auth-signup.html">Sign Up</a>
+              </li>
+
+            </ul>
+          </div>
+        </li>
+
+
+        <li class="nav-item">
+          <a class="nav-link menu-arrow" href="#sidebarRoles" data-bs-toggle="collapse" role="button"
+            aria-expanded="false" aria-controls="sidebarRoles">
+            <span class="nav-icon">
+              <iconify-icon icon="solar:user-speak-rounded-bold-duotone"></iconify-icon>
+            </span>
+            <span class="nav-text"> Roles </span>
+          </a>
+          <div class="collapse" id="sidebarRoles">
+            <ul class="nav sub-navbar-nav">
+              <ul class="nav sub-navbar-nav">
+                <li class="sub-nav-item">
+                  <a class="sub-nav-link" href="role-list.html">List</a>
+                </li>
+                <li class="sub-nav-item">
+                  <a class="sub-nav-link" href="role-edit.html">Edit</a>
+                </li>
+                <li class="sub-nav-item">
+                  <a class="sub-nav-link" href="role-add.html">Create</a>
+                </li>
+              </ul>
+            </ul>
+          </div>
+        </li>
+        <!-- News Navigation Item -->
+        <li class="nav-item">
+          <a class="nav-link menu-arrow" href="#sidebarNews" data-bs-toggle="collapse" role="button"
+            aria-expanded="false" aria-controls="sidebarNews">
+            <span class="nav-icon">
+              <iconify-icon icon="solar:chat-square-like-bold-duotone"></iconify-icon>
+            </span>
+            <span class="nav-text"> News </span>
+          </a>
+          <div class="collapse" id="sidebarNews">
+            <ul class="nav sub-navbar-nav">
+              <li class="sub-nav-item">
+                <a class="sub-nav-link" href="news-list.html">List</a>
+              </li>
+              <li class="sub-nav-item">
+                <a class="sub-nav-link" href="news-add.html">Create</a>
+              </li>
+              <li class="sub-nav-item">
+                <a class="sub-nav-link" href="news-grid.html">Grid</a>
+              </li>
+            </ul>
+          </div>
+        </li>
+
+        <!-- Career Navigation Item -->
+        <li class="nav-item">
+          <a class="nav-link menu-arrow" href="#sidebarCareer" data-bs-toggle="collapse" role="button"
+            aria-expanded="false" aria-controls="sidebarCareer">
+            <span class="nav-icon">
+              <iconify-icon icon="solar:case-minimalistic-bold-duotone"></iconify-icon>
+            </span>
+            <span class="nav-text"> Career </span>
+          </a>
+          <div class="collapse" id="sidebarCareer">
+            <ul class="nav sub-navbar-nav">
+              <li class="sub-nav-item">
+                <a class="sub-nav-link" href="career-list.html">List</a>
+              </li>
+              <li class="sub-nav-item">
+                <a class="sub-nav-link" href="career-add.html">Create</a>
+              </li>
+              <li class="sub-nav-item">
+                <a class="sub-nav-link" href="career-grid.html">Grid</a>
+              </li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link menu-arrow" href="#sidebarAddUsers" data-bs-toggle="collapse" role="button"
+            aria-expanded="false" aria-controls="sidebarAddUsers">
+            <span class="nav-icon">
+              <iconify-icon icon="solar:t-shirt-bold-duotone"></iconify-icon>
+            </span>
+            <span class="nav-text"> Add Users </span>
+          </a>
+          <div class="collapse" id="sidebarAddUsers">
+            <ul class="nav sub-navbar-nav">
+              <li class="sub-nav-item">
+                <a class="sub-nav-link" href="adduser-list.html">List</a>
+              </li>
+              <li class="sub-nav-item">
+                <a class="sub-nav-link" href="adduser-grid.html">Grid</a>
+              </li>
+              <li class="sub-nav-item">
+                <a class="sub-nav-link" href="adduser-details.html">Details</a>
+              </li>
+              <li class="sub-nav-item">
+                <a class="sub-nav-link" href="adduser-edit.html">Edit</a>
+              </li>
+              <li class="sub-nav-item">
+                <a class="sub-nav-link" href="adduser-add.html">Create</a>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link menu-arrow" href="#sidebarGeneralSettings" data-bs-toggle="collapse" role="button"
+            aria-expanded="false" aria-controls="sidebarGeneralSettings">
+            <span class="nav-icon">
+              <iconify-icon icon="solar:t-shirt-bold-duotone"></iconify-icon>
+            </span>
+            <span class="nav-text"> General Settings </span>
+          </a>
+          <div class="collapse" id="sidebarGeneralSettings">
+            <ul class="nav sub-navbar-nav">
+              <li class="sub-nav-item">
+                <a class="sub-nav-link" href="gernalsettings-list.html">List</a>
+              </li>
+              <li class="sub-nav-item">
+                <a class="sub-nav-link" href="gernalsettings-grid.html">Grid</a>
+              </li>
+              <li class="sub-nav-item">
+                <a class="sub-nav-link" href="gernalsettings-details.html">Details</a>
+              </li>
+              <li class="sub-nav-item">
+                <a class="sub-nav-link" href="gernalsettings-edit.html">Edit</a>
+              </li>
+              <li class="sub-nav-item">
+                <a class="sub-nav-link" href="gernalsettings-add.html">Create</a>
+              </li>
+            </ul>
+          </div>
+        </li>
+
+
+        <li class="nav-item">
+          <a class="nav-link" href="settings.html">
+            <span class="nav-icon">
+              <iconify-icon icon="solar:settings-bold-duotone"></iconify-icon>
+            </span>
+            <span class="nav-text"> Settings </span>
+          </a>
+        </li>
+
+
+      </ul>
+    </div>
+  </div>
+</div>

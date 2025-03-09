@@ -32,9 +32,19 @@
               }
             ],
             "styles": [
-              "src/styles.scss"
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "src/styles.scss",
+              "src/assets/css/vendor.min.css",
+              "src/assets/css/icons.min.css",
+              "src/assets/css/app.min.css"
             ],
-            "scripts": [],
+            "scripts": [
+              "node_modules/@iconify/iconify/dist/iconify.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
+              "src/assets/js/config.js",
+              "src/assets/js/vendor.js",
+              "src/assets/js/app.js"
+            ],
             "server": "src/main.server.ts",
             "prerender": true,
             "ssr": {
