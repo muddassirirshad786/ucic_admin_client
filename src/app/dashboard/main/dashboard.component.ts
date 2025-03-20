@@ -17,7 +17,6 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
 
     console.log('DashboardComponent initialized');
-    debugger
   }
 
 

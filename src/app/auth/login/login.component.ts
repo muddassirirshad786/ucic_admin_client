@@ -19,7 +19,6 @@ export class LoginComponent {
   constructor(private authService: AuthService, private router: Router) {}
 
   login() {
-    debugger
     if (!this.authService.login(this.username, this.password)) {
       this.errorMessage = 'Invalid username or password';
     }

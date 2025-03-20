@@ -10,7 +10,6 @@ export class AuthService {
   constructor(private router: Router) {}
 
   login(username: string, password: string): boolean {
-    debugger
     if (username === 'admin' && password === 'admin123') {
       this.isAuthenticated = true;
       localStorage.setItem('token', 'dummy-token');

@@ -16,8 +16,7 @@ export class NewsService {
   }
 
   addNews(news: FormData): Observable<any> {
-    debugger
-    return this.http.post(`https://localhost:7219/api/News/Create`, news);
+    return this.http.post(`${this.apiUrl}/News/Create`, news);
   }
 
   
