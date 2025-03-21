@@ -1,10 +1,37 @@
-<div class="login-container">
-    <h2>Admin Login</h2>
-    <form (submit)="login()">
-      <input type="text" [(ngModel)]="username" placeholder="Username" name="username" required />
-      <input type="password" [(ngModel)]="password" placeholder="Password" name="Password" required />
-      <button type="submit">Login</button>
-      <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
-    </form>
+<div class="container d-flex justify-content-center align-items-center vh-100">
+  <div class="card p-4 shadow-lg" style="width: 400px;">
+    <div class="card-body">
+      <h2 class="text-center mb-4">Admin Login</h2>
+      <form (submit)="login()">
+        <div class="mb-3">
+          <label for="username" class="form-label">Username</label>
+          <input
+            type="text"
+            id="username"
+            [(ngModel)]="username"
+            class="form-control"
+            placeholder="Enter your username"
+            name="username"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input
+            type="password"
+            id="password"
+            [(ngModel)]="password"
+            class="form-control"
+            placeholder="Enter your password"
+            name="password"
+            required
+          />
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Login</button>
+        <p *ngIf="errorMessage" class="text-danger text-center mt-2">
+          {{ errorMessage }}
+        </p>
+      </form>
+    </div>
   </div>
-  
+</div>

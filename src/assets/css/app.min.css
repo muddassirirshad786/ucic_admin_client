@@ -18208,9 +18208,9 @@ body {
   position: relative;
 }
 
-.container-fluid, .container-sm, .container-md, .container-lg, .container-xl, .container-xxl {
+/* .container-fluid, .container-sm, .container-md, .container-lg, .container-xl, .container-xxl {
   max-width: 95%;
-}
+} */
 
 .scroll-hidden::-webkit-scrollbar {
   -webkit-appearance: none;
