@@ -1,0 +1,38 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Create Jobs</h4>
+                </div>
+                <div class="card-body">
+                    <form (ngSubmit)="submitJobs()" #newsForm="ngForm">
+                        <div class="mb-3">
+                            <label for="title" class="form-label">Title</label>
+                            <input type="text" id="title" class="form-control" [(ngModel)]="jobs.title" name="title" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="description" class="form-label">Description</label>
+                            <input type="text" id="title" class="form-control" [(ngModel)]="jobs.description" name="description" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="department" class="form-label">Department</label>
+                            <input type="text" id="department" class="form-control" [(ngModel)]="jobs.department" name="department" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="location" class="form-label">Location</label>
+                            <input type="text" id="location" class="form-control" [(ngModel)]="jobs.location" name="location" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="salary" class="form-label">Salary</label>
+                            <input type="text" id="salary" class="form-control" [(ngModel)]="jobs.salary" name="department" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <a routerLink="/jobs/list" class="btn btn-light">Cancel</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

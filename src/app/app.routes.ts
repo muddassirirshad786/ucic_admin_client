@@ -26,6 +26,11 @@ export const routes: Routes = [
         loadChildren: () =>
           import('./news/news.module').then((m) => m.NewsModule),
       },
+      {
+        path: 'jobs',
+        loadChildren: () =>
+          import('./jobs/jobs.module').then((m) => m.JobsModule),
+      },
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' }, // ✅ Redirect to dashboard by default
     ],
   },
