@@ -21,6 +21,6 @@ export class NewsService {
 
   
   deleteNews(id: number): Observable<any> {
-    return this.http.delete(`${this.apiUrl}/${id}`);
+    return this.http.delete(`${this.apiUrl}/News/Delete/${id}`);
   }
 }

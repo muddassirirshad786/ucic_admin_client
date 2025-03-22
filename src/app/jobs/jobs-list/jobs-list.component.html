@@ -1,0 +1,52 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h4 class="card-title">All Jobs List</h4>
+                    <a routerLink="/jobs/create" class="btn btn-sm btn-primary">Add Job</a>
+                </div>
+                <div class="table-responsive">
+                    <table class="table align-middle table-hover">
+                        <thead class="bg-light-subtle">
+                            <tr>
+                                <th>Title</th>
+                                <th>Department</th>
+                                <th>Location</th>
+                                <th>Work Type</th>
+                                <th>Salary</th>
+                                <th>Posted Date</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let job of jobsList">
+                                <td>{{ job.title }}</td>
+                                <td>{{ job.department }}</td>
+                                <td>{{ job.location }}</td>
+                                <td>{{ job.workType }} ({{ job.workLocation }})</td>
+                                <td>{{ job.salary | currency:'USD' }}</td>
+                                <td>{{ job.postedDate | date }}</td>
+                                <td>
+                                    <div class="d-flex gap-2">
+                                        <!-- [routerLink]="['/jobs/view', job.jobsId]" -->
+                                        <a  class="btn btn-light btn-sm">
+                                            <iconify-icon icon="solar:eye-broken"></iconify-icon>
+                                        </a>
+                                        <!-- [routerLink]="['/jobs/edit', job.jobsId]" -->
+                                        <a  class="btn btn-soft-primary btn-sm">
+                                            <iconify-icon icon="solar:pen-2-broken"></iconify-icon>
+                                        </a>
+                                        <button (click)="deleteJob(job.jobsId)" class="btn btn-soft-danger btn-sm">
+                                            <iconify-icon icon="solar:trash-bin-minimalistic-2-broken"></iconify-icon>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

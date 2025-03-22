@@ -21,6 +21,6 @@ export class JobsService {
 
   
   deleteJobs(id: number): Observable<any> {
-    return this.http.delete(`${this.apiUrl}/${id}`);
+    return this.http.delete(`${this.apiUrl}/Jobs/Delete/${id}`);
   }
 }
