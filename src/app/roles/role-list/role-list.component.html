@@ -1,0 +1,41 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header d-flex justify-content-between align-items-center">
+          <h4 class="card-title mb-0">Roles</h4>
+          <button class="btn btn-primary" (click)="createNewRole()">Create New Role</button>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Role Name</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngIf="loading">
+                  <td colspan="3" class="text-center">Loading...</td>
+                </tr>
+                <tr *ngFor="let role of roles">
+                  <td>{{ role.id }}</td>
+                  <td>{{ role.roleName }}</td>
+                  <td>
+                    <button class="btn btn-sm btn-primary me-2" (click)="editRole(role)">Edit</button>
+                    <button class="btn btn-sm btn-danger" (click)="deleteRole(role.id)">Delete</button>
+                  </td>
+                </tr>
+                <tr *ngIf="!loading && roles.length === 0">
+                  <td colspan="3" class="text-center">No roles found</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 

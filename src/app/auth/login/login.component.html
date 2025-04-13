@@ -4,15 +4,16 @@
       <h2 class="text-center mb-4">Admin Login</h2>
       <form (submit)="login()">
         <div class="mb-3">
-          <label for="username" class="form-label">Username</label>
+          <label for="email" class="form-label">Email</label>
           <input
-            type="text"
-            id="username"
-            [(ngModel)]="username"
+            type="email"
+            id="email"
+            [(ngModel)]="email"
             class="form-control"
-            placeholder="Enter your username"
-            name="username"
+            placeholder="Enter your email"
+            name="email"
             required
+            [disabled]="isLoading"
           />
         </div>
         <div class="mb-3">
@@ -25,9 +26,13 @@
             placeholder="Enter your password"
             name="password"
             required
+            [disabled]="isLoading"
           />
         </div>
-        <button type="submit" class="btn btn-primary w-100">Login</button>
+        <button type="submit" class="btn btn-primary w-100" [disabled]="isLoading">
+          <span *ngIf="!isLoading">Login</span>
+          <span *ngIf="isLoading" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+        </button>
         <p *ngIf="errorMessage" class="text-danger text-center mt-2">
           {{ errorMessage }}
         </p>

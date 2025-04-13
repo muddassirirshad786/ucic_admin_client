@@ -8,7 +8,7 @@ export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   {
     path: '',
-    component: MainLayoutComponent, // ✅ Sidebar contains <router-outlet>
+    component: MainLayoutComponent,
     canActivate: [authGuard],
     children: [
       {
@@ -31,8 +31,13 @@ export const routes: Routes = [
         loadChildren: () =>
           import('./jobs/jobs.module').then((m) => m.JobsModule),
       },
-      { path: '', redirectTo: 'dashboard', pathMatch: 'full' }, // ✅ Redirect to dashboard by default
+      {
+        path: 'roles',
+        loadChildren: () =>
+          import('./roles/roles.module').then((m) => m.RolesModule),
+      },
+      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
     ],
   },
-  { path: '**', redirectTo: 'dashboard' }, // ✅ Redirect unknown routes
+  { path: '**', redirectTo: 'dashboard' },
 ];
