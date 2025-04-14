@@ -12,15 +12,32 @@ import { AuthRoutingModule } from '../auth-routing.module';
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
-  username = '';
+  email = '';
   password = '';
   errorMessage = '';
+  isLoading = false;
 
   constructor(private authService: AuthService, private router: Router) {}
 
   login() {
-    if (!this.authService.login(this.username, this.password)) {
-      this.errorMessage = 'Invalid username or password';
-    }
+    debugger;
+    this.isLoading = true;
+    this.errorMessage = '';
+    
+    this.authService.login(this.email, this.password).subscribe({
+      next: (response: any) => {
+        if (response.token) {
+          localStorage.setItem('token', response.token);
+          this.router.navigate(['/dashboard']);
+        }
+      },
+      error: (error) => {
+        this.errorMessage = error.error?.message || 'Invalid email or password';
+        this.isLoading = false;
+      },
+      complete: () => {
+        this.isLoading = false;
+      }
+    });
   }
 }
