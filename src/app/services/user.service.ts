@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { environment } from '../../environments/environment';
+import { switchMap, map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +22,18 @@ export class UserService {
   }
 
   createUser(userData: any): Observable<any> {
-    return this.http.post(`${this.apiUrl}/Create`, userData);
+    const { roles, ...userDataWithoutRoles } = userData;
+    
+    return this.http.post(`${this.apiUrl}/Create`, userDataWithoutRoles).pipe(
+      switchMap(response => {
+        if (roles && roles.length > 0) {
+          return this.assignRoles(userData.userName, roles).pipe(
+            map(() => response)
+          );
+        }
+        return of(response);
+      })
+    );
   }
 
   deleteUser(userId: string): Observable<any> {
