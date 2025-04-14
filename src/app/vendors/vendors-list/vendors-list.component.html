@@ -17,6 +17,7 @@
                                 <th>Email</th>
                                 <th>Contact Person</th>
                                 <th>Employees</th>
+                                <th>Status</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -28,6 +29,15 @@
                                 <td>{{ vendor.email }}</td>
                                 <td>{{ vendor.contactPerson }}</td>
                                 <td>{{ vendor.employees }}</td>
+                                <td>
+                                    <span [ngClass]="vendor.isApproved ? 'badge bg-success' : 'badge bg-danger'" class="d-flex align-items-center gap-1">
+                                      <iconify-icon 
+                                        [icon]="vendor.isApproved ? 'twemoji:checkered-flag' : 'twemoji:triangular-flag'" 
+                                        [style.color]="vendor.isApproved ? 'green' : 'red'">
+                                      </iconify-icon>
+                                      {{ vendor.isApproved ? 'Approved' : 'Not Approved' }}
+                                    </span>
+                                  </td>
                                 <td>
                                     <div class="d-flex gap-2">
                                         <!-- [routerLink]="['/jobs/view', job.jobsId]" -->

@@ -31,7 +31,7 @@ export class VendorsListComponent implements OnInit {
     if (confirm('Are you sure you want to approve this vendor?')) {
       this.vendorsService.approveVendors(vendorId).subscribe({
         next: () => {
-          this.vendorsList = this.vendorsList.filter(vendor => vendor.vendorId !== vendorId);
+          this.getAllVendors();
         },
         error: (err) => {
           console.error('Error deleting job:', err);
