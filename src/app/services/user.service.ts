@@ -22,18 +22,7 @@ export class UserService {
   }
 
   createUser(userData: any): Observable<any> {
-    const { roles, ...userDataWithoutRoles } = userData;
-    
-    return this.http.post(`${this.apiUrl}/Create`, userDataWithoutRoles).pipe(
-      switchMap(response => {
-        if (roles && roles.length > 0) {
-          return this.assignRoles(userData.userName, roles).pipe(
-            map(() => response)
-          );
-        }
-        return of(response);
-      })
-    );
+    return this.http.post(`${this.apiUrl}/Create`, userData);
   }
 
   deleteUser(userId: string): Observable<any> {
