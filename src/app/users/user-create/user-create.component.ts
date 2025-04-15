@@ -73,7 +73,8 @@ export class UserCreateComponent implements OnInit {
 
       this.loading = true;
       const userData = {
-        ...this.userForm.value
+        ...this.userForm.value,
+        roles: this.userForm.value.roles || []
       };
 
       this.userService.createUser(userData).subscribe({
