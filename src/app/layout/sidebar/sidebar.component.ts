@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { RoleService } from '../../services/role.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -9,41 +10,28 @@ import { RouterModule } from '@angular/router';
   styleUrl: './sidebar.component.scss',
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class SidebarComponent {
+export class SidebarComponent implements OnInit {
+  menuItems: any[] = [];
 
-  menuItems = [
-    { title: 'Dashboard', icon: 'bi bi-speedometer2', route: '/dashboard' },
-    { 
-      title: 'Users', icon: 'bi bi-people', expanded: false, // ✅ Added expanded
-      children: [
-        { title: 'All Users', route: '/users' },
-        { title: 'Add User', route: '/users/add' }
-      ] 
-    },
-    { 
-      title: 'Products', icon: 'bi bi-box', expanded: false, // ✅ Added expanded
-      children: [
-        { title: 'All Products', route: '/products/all' },
-        { title: 'Add Product', route: '/products/add' }
-      ]
-    },
-    { title: 'Orders', icon: 'bi bi-cart', route: '/orders' },
-    { title: 'Settings', icon: 'bi bi-gear', route: '/settings' }
-  ];
+  constructor(private roleService: RoleService) {}
+
+  ngOnInit() {
+    this.menuItems = this.roleService.getMenuItems();
+  }
 
   toggleMenu(item: any) {
     this.menuItems.forEach(menu => {
       if (menu !== item && menu.children) {
-        menu.expanded = false; // Collapse other menus
+        menu.expanded = false;
       }
     });
 
-    item.expanded = !item.expanded; // Toggle the clicked menu
+    item.expanded = !item.expanded;
   }
 
   logout() {
     localStorage.removeItem('token');
+    localStorage.removeItem('userRole');
     location.reload();
   }
-
 }
