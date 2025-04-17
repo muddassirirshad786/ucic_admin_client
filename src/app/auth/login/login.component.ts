@@ -4,6 +4,7 @@ import { AuthService } from '../auth.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AuthRoutingModule } from '../auth-routing.module';
+import { RoleService, UserRole } from '../../services/role.service';
 
 @Component({
   selector: 'app-login',
@@ -17,10 +18,13 @@ export class LoginComponent {
   errorMessage = '';
   isLoading = false;
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private roleService: RoleService
+  ) {}
 
   login() {
-    debugger;
     this.isLoading = true;
     this.errorMessage = '';
     
@@ -28,6 +32,9 @@ export class LoginComponent {
       next: (response: any) => {
         if (response.token) {
           localStorage.setItem('token', response.token);
+          const userRole = this.getUserRole(this.email);
+          localStorage.setItem('userRole', userRole);
+          this.roleService.setRole(userRole);
           this.router.navigate(['/dashboard']);
         }
       },
@@ -39,5 +46,17 @@ export class LoginComponent {
         this.isLoading = false;
       }
     });
+  }
+
+  private getUserRole(email: string): UserRole {
+    const roleMap: { [key: string]: UserRole } = {
+      'admin': UserRole.ADMIN,
+      'hr': UserRole.HR,
+      'finance': UserRole.FINANCE,
+      'purchase': UserRole.PURCHASE,
+      'sale': UserRole.SALE
+    };
+
+    return roleMap[email.toLowerCase().split('@')[0]] || UserRole.ADMIN;
   }
 }
