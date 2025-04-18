@@ -13,8 +13,11 @@ import { RouterModule } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   isDropdownOpen = false;
+  fullName: string = '';
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService) {
+    this.fullName = localStorage.getItem('FullName') || '';
+  }
 
   ngOnInit(): void {
     // Initialize any necessary setup
